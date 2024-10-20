@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="App3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <CommandBar Grid.Row="0" >
+            <AppBarButton x:Name="btnadd" Label="Add" Icon="Add" Click="btnadd_Click"/>
+            <AppBarButton x:Name="btnrev" Icon="OpenPane" Label="preview" Click="btnrev_Click">
+                <AppBarButton.Flyout>
+                    <Flyout Placement="left">
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                            <StackPanel Orientation="Horizontal" x:Name="thumbnail">
+                               <!--<Image Source="Assets/de.png"/>
+                                <Image Source="Assets/de.png"/>
+                                <Image Source="Assets/de.png"/>
+                                <Image Source="Assets/de.png"/>-->
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Help" Label="help"/>
+                <AppBarButton Icon="Favorite" Label="favorite"/>
+            </CommandBar.SecondaryCommands>
+            <CommandBar.Content>
+                <TextBlock Text="Browser" />
+                
+            </CommandBar.Content>
+        </CommandBar>
+        <Pivot Grid.Row="1" Name="TabPivot">
+            <PivotItem Header="Tab 1" >
+                <WebView Source="https://www.google.com"/>
+                </PivotItem>
+        </Pivot>
+       <!-- <Grid Grid.Row="1">
+            <Frame x:Name="mainframe"/>
+        </Grid>-->
+        
+    </Grid>
+</Page>
